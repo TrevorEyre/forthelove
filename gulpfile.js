@@ -27,7 +27,7 @@ var destScripts = './dist/js/';
 var destStyles = './dist/';
 var destPHP = './dist/';
 var srcDeployScripts = './dist/js/**/*.min.js';
-var srcDeployStyles = './dist/*.min.css';
+var srcDeployStyles = './dist/*.css';
 var srcDeployPHP = './dist/*.php';
 var srcDeployExtras = [
         './dist/font/*',
@@ -94,11 +94,7 @@ gulp.task('styles', function () {
                 browsers: ['> 1%']
             })
         ]))
-        .pipe(gulp.dest(destStyles))
         .pipe(cssmin())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(destStyles));
 });
 
