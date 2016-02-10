@@ -302,7 +302,7 @@ function gbo_footer_creds_filter ($creds) {
     $followOnInsta = "<a href='http://instagram.com/shannonwillardson' target='_blank'><h2 class='gbo-insta-footer'><span>@shannonwillardson on Instagram</span></h2></a>";
     $rewardErrorMessage = 'Disable your ad blocking software to view this content.';
     $rewardStyleScript = "<div class='ltkwidget-widget' data-rows='2' data-cols='8' data-show-frame='false' data-user-id='50912' data-padding='0'><script type='text/javascript'>!function(d,s,id){var e, p = /^http:/.test(d.location) ? 'http' : 'https';if(!d.getElementById(id)) {e = d.createElement(s);e.id = id;e.src = p + '://' + 'widgets.rewardstyle.com' + '/js/ltkwidget.js';d.body.appendChild(e);}if(typeof(window.__ltkwidget) === 'object') {if(document.readyState === 'complete') {__ltkwidget.init();}}}(document, 'script', 'ltkwidget-script');</script><div class='rs-adblock'><img src='//assets.rewardstyle.com/images/search/350.gif' onerror='this.parentNode.innerHTML=$rewardErrorMessage' /><noscript>JavaScript is currently disabled in this browser. Reactivate it to view this content.</noscript></div></div>";
-    $creds = '<p>[footer_copyright] GBO Fashion &middot All Rights Reserved &middot Website Design by <a href="http://www.trevoreyre.com">Trevor Eyre</a></p>';
+    $creds = "<p>[footer_copyright] GBO Fashion &middot All Rights Reserved &middot Website Design by <a href='http://trevoreyre.com' target='_blank'>Trevor Eyre</a></p>";
     
     return $followOnInsta . $rewardStyleScript . $creds;
 }
