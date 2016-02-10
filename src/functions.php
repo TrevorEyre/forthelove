@@ -195,7 +195,7 @@ function gbo_nav_menu_items ($menu, $args) {
     // Add social media icons to left side of nav
     $socialIcons = "
         <li class='menu-item gbo-social-icons'>
-            <a class='gbo-icon-heart' href='http://www.bloglovin.com/en/blog/3582697/gbo-fashion/follow' target='_blank'></a>
+            <a class='gbo-icon-heart' href='https://www.bloglovin.com/blogs/gbo-fashion-3582697' target='_blank'></a>
         </li>
         <li class='menu-item gbo-social-icons'>
             <a class='gbo-icon-facebook' href='http://www.facebook.com/GboFashion' target='_blank'></a>
@@ -231,7 +231,7 @@ function gbo_right_social_icons () {
         <div class='floating-social-icons-right gbo-fixed'>
             <ul>
                 <li class='gbo-social-icons'>
-                    <a class='gbo-icon-heart' href='http://www.bloglovin.com/en/blog/3582697/gbo-fashion/follow' target='_blank'></a>
+                    <a class='gbo-icon-heart' href='https://www.bloglovin.com/blogs/gbo-fashion-3582697' target='_blank'></a>
                 </li>
                 <li class='gbo-social-icons'>
                     <a class='gbo-icon-facebook' href='http://www.facebook.com/GboFashion' target='_blank'></a>
