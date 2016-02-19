@@ -88,8 +88,6 @@ gulp.task('deployPHP', ['php'], function () {
 // Scripts task
 gulp.task('scripts', function () {
     return gulp.src(srcScripts)
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest(destScripts))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
