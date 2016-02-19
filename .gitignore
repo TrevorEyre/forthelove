@@ -4,11 +4,5 @@ node_modules
 # Gulp config file
 config.json
 
-# Image folder
-dist/images
-
-# Font folder
-dist/font
-
-# Template screenshot
-dist/screenshot.png
+# Resource folder
+res

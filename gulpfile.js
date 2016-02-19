@@ -20,9 +20,9 @@ var wrap = require('gulp-wrap');
 var config = require('./config.json');
 
 // Define source/destination paths for build and deploy tasks
-var srcScripts = './src/js/*.js';
+var srcScripts = './src/js/**/*.js';
 var srcStyles = './src/scss/*.scss';
-var srcPHP = './src/*.php';
+var srcPHP = './src/php/*.php';
 var destScripts = './dist/js/';
 var destStyles = './dist/';
 var destPHP = './dist/';
@@ -30,11 +30,11 @@ var srcDeployScripts = './dist/js/**/*.min.js';
 var srcDeployStyles = './dist/*.css';
 var srcDeployPHP = './dist/*.php';
 var srcDeployExtras = [
-        './dist/font/*',
-        './dist/images/*',
-        './dist/screenshot.png'
+        './res/**/*'
     ];
 var deployDestination = config.deployDestination;
+var srcDeployProd = ['./dist/**/*'].concat(srcDeployExtras);
+var deployDestinationProd = config.deployDestinationProd;
 
 // FTP connection
 var conn = ftp.create({
@@ -45,39 +45,51 @@ var conn = ftp.create({
     log: gutil.log
 });
 
-// Deploy function. Expects source files to be grouped in a distribution folder.
-// Strips this first folder, to place files in base directory of server
-function deploy (inputStream) {
+// Deploy function. If source files are located in 'dist' or 'res' folders, function strips first
+// folder, to put files in base directory. If source files are in a different base folder, the
+// original file structure is preserved.
+function deploy (destination, inputStream) {
     return inputStream
         .pipe(rename(function (path) {
             var parts = path.dirname.split('\\');
-            parts.splice(0, 1);
+            if (parts[0] == 'dist' || parts[0] == 'res') {
+                parts.splice(0, 1);
+            }
             path.dirname = parts.join('\\');
         }))
-        .pipe(conn.newer(deployDestination))
-        .pipe(conn.dest(deployDestination));
+        .pipe(conn.newer(destination))
+        .pipe(conn.dest(destination));
 }
 
 // Default task
 gulp.task('default', ['deployAll', 'watch']);
 
-// Various deploy tasks by file type to reduce FTP transfer to server
-gulp.task('deployAll', ['deployScripts', 'deployStyles', 'deployPHP'], function () {
-    return deploy(gulp.src(srcDeployExtras, {base: '.', buffer: false}));
+// Deploy all files to production server
+gulp.task('deployProduction', ['scripts', 'styles', 'php'], function () {
+    return deploy(deployDestinationProd, gulp.src(srcDeployProd, {base: '.', buffer: false}));
 });
+
+// Deploy all files to development server
+gulp.task('deployAll', ['scripts', 'styles', 'php'], function () {
+    return deploy(deployDestination, gulp.src(srcDeployProd, {base: '.', buffer: false}));
+});
+
+// Various deploy tasks by file type to reduce FTP transfer to server
 gulp.task('deployScripts', ['scripts'], function () {
-    return deploy(gulp.src(srcDeployScripts, {base: '.', buffer: false}));
+    return deploy(deployDestination, gulp.src(srcDeployScripts, {base: '.', buffer: false}));
 });
 gulp.task('deployStyles', ['styles'], function () {
-    return deploy(gulp.src(srcDeployStyles, {base: '.', buffer: false}));
+    return deploy(deployDestination, gulp.src(srcDeployStyles, {base: '.', buffer: false}));
 });
 gulp.task('deployPHP', ['php'], function () {
-    return deploy(gulp.src(srcDeployPHP, {base: '.', buffer: false}));
+    return deploy(deployDestination, gulp.src(srcDeployPHP, {base: '.', buffer: false}));
 });
 
 // Scripts task
 gulp.task('scripts', function () {
     return gulp.src(srcScripts)
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(destScripts))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
