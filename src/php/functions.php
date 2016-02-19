@@ -4,8 +4,8 @@ include_once(get_template_directory() . '/lib/init.php');
 
 // Child Theme Definitions (Do Not Remove)
 define('CHILD_THEME_NAME', __('GBO', 'gbo'));
-define('CHILD_THEME_URL', 'http://www.trevoreyre.com');
-define('CHILD_THEME_VERSION', '1.0');
+define('CHILD_THEME_URL', 'http://trevoreyre.com');
+define('CHILD_THEME_VERSION', '1.0.1');
 
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'gbo_scripts_styles');
