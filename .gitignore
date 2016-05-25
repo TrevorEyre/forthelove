@@ -1,8 +1,5 @@
 # Node Dependency directory
 node_modules
 
-# Gulp config file
-config.json
-
 # Resource folder
 res
