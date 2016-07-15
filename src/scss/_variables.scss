@@ -1,0 +1,27 @@
+/*********************************************
+ Layout
+ *********************************************/
+
+$desktop-breakpoint: 1200px;
+$tablet-breakpoint: 800px;
+$body-width: 1024px;
+$menu-height: 64px;
+$padding: 16px;
+$padding-ex-small: $padding/4;
+$padding-small: $padding/2;
+$padding-medium: 2 * $padding;
+$padding-large: 3 * $padding;
+$padding-ex-large: 4 * $padding;
+
+
+/*********************************************
+ Colors
+ *********************************************/
+
+$background: #fafafa;
+$background--menu: #fff;
+$primary-color: #607d8b;
+$accent-color: #ff3d00;
+$divider-color: rgba(0, 0, 0, 0.12);
+$text-color: rgba(0, 0, 0, 0.87);
+$secondary-text-color: rgba(0, 0, 0, 0.54);
