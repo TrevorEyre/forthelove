@@ -1,34 +1,25 @@
 jQuery(document).ready(function ($) {
 
     //Initialize widget
-    $('.entry-title').html('Her Clothes');
-    jQuery.ajax({
-        url: gbo_ajax.ajaxurl,
-        type: 'POST',
-        dataType: 'html',
-        data: {
-            action: 'shop_button_shortcode',
-            'shortcode_id': '300313'
-        },
-        dataType: 'html',
-        success: function (response) {
-            $('.entry-content').html(response);
-        },
-        error: function (errorThrown) {
-            console.log(errorThrown);
-        }
-    });
+    getShopWidget('Nordstrom Sale', '420338');
 
     //Change widget on button click
-    jQuery('.gbo-shop-button').on('click', function () {
-        $('.entry-title').html($(this).attr('value'));
-        jQuery.ajax({
+    $('.gbo-shop-button').on('click', function () {
+        var entryTitle = $(this).attr('value');
+        var id = $(this).attr('id');
+        getShopWidget(entryTitle, id);
+    });
+
+    // Get shop widget via AJAX
+    function getShopWidget (entryTitle, widgetId) {
+        $('.entry-title').html(entryTitle);
+        $.ajax({
             url: gbo_ajax.ajaxurl,
             type: 'POST',
             dataType: 'html',
             data: {
                 action: 'shop_button_shortcode',
-                'shortcode_id': this.id
+                'shortcode_id': widgetId
             },
             dataType: 'html',
             success: function (response) {
@@ -38,5 +29,5 @@ jQuery(document).ready(function ($) {
                 console.log(errorThrown);
             }
         });
-    });
+    }
 });

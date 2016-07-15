@@ -16,28 +16,36 @@ add_action('genesis_sidebar', 'gbo_page_shop_sidebar');
 function gbo_page_shop_sidebar () { ?>
     <section class='widget widget_text'>
         <div class='widget-wrap'>
+            <h4 class='widget-title widgettitle'>Featured</h4>
+            <div class='textwidget'>
+                <input type='button' id='420338' class='gbo-shop-button' value='Nordstrom Sale'>
+            </div>
+        </div>
+    </section>
+    <section class='widget widget_text'>
+        <div class='widget-wrap'>
             <h4 class='widget-title widgettitle'>Category</h4>
             <div class='textwidget'>
-                <input type='button' id='300313' class='gbo-shop-button' value='Her Clothes'>
-                <input type='button' id='300319' class='gbo-shop-button' value='His Clothes'>
-                <input type='button' id='300325' class='gbo-shop-button' value='Kids Clothes'>
+                <input type='button' id='420285' class='gbo-shop-button' value='Her Clothes'>
+                <input type='button' id='420303' class='gbo-shop-button' value='His Clothes'>
+                <input type='button' id='420308' class='gbo-shop-button' value='Kids Clothes'>
             </div>
         </div>
     </section>
     <section class='widget widget_text'>
         <div class='widget-wrap'>
             <div class='textwidget'>
-                <input type='button' id='300331' class='gbo-shop-button' value='Shoes'>
-                <input type='button' id='300516' class='gbo-shop-button' value='Handbags'>
-                <input type='button' id='300522' class='gbo-shop-button' value='Accessories/Jewelry'>
+                <input type='button' id='420309' class='gbo-shop-button' value='Shoes'>
+                <input type='button' id='420312' class='gbo-shop-button' value='Handbags'>
+                <input type='button' id='420317' class='gbo-shop-button' value='Accessories/Jewelry'>
             </div>
         </div>
     </section>
     <section class='widget widget_text'>
         <div class='widget-wrap'>
             <div class='textwidget'>
-                <input type='button' id='300526' class='gbo-shop-button' value='Makeup/Beauty'>
-                <input type='button' id='300532' class='gbo-shop-button' value='Home'>
+                <input type='button' id='420320' class='gbo-shop-button' value='Makeup/Beauty'>
+                <input type='button' id='420327' class='gbo-shop-button' value='Home'>
             </div>
         </div>
     </section>
