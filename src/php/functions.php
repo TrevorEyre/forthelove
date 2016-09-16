@@ -17,22 +17,6 @@ function gbo_scripts_styles () {
     wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Merriweather:400,700,400italic|Source+Sans+Pro:400', array(), CHILD_THEME_VERSION);
 }
 
-// Google Analytics script
-/*
-add_action('wp_footer', 'add_googleanalytics');
-function add_googleanalytics() { ?>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-30529692-1', 'auto');
-  ga('send', 'pageview');
-</script>
-<?php }
-*/
-
 // Ajax function for Reward Style widget on shop page [show_boutique_widget id="267828"]
 add_action('wp_ajax_shop_button_shortcode', 'shop_button_shortcode_ajax');
 add_action('wp_ajax_nopriv_shop_button_shortcode', 'shop_button_shortcode_ajax');
@@ -256,7 +240,7 @@ function gbo_right_social_icons () {
 add_filter('genesis_post_meta', 'gbo_post_meta_filter');
 function gbo_post_meta_filter ($post_meta) {
     $pinScript = "javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());";
-    
+
     $entry_meta = "
         <div class='gbo-entry-meta clearfix'>
             <div class='gbo-entry-meta_left'>
@@ -292,7 +276,7 @@ function gbo_post_meta_filter ($post_meta) {
             <span><img src='" . get_bloginfo('stylesheet_directory') . "/images/GBO-Nav-Logo.png'></span>
         </div>
     ";
-    
+
     return $entry_meta;
 }
 
@@ -303,7 +287,7 @@ function gbo_footer_creds_filter ($creds) {
     $rewardErrorMessage = 'Disable your ad blocking software to view this content.';
     $rewardStyleScript = "<div class='ltkwidget-widget' data-rows='2' data-cols='8' data-show-frame='false' data-user-id='50912' data-padding='0'><script type='text/javascript'>!function(d,s,id){var e, p = /^http:/.test(d.location) ? 'http' : 'https';if(!d.getElementById(id)) {e = d.createElement(s);e.id = id;e.src = p + '://' + 'widgets.rewardstyle.com' + '/js/ltkwidget.js';d.body.appendChild(e);}if(typeof(window.__ltkwidget) === 'object') {if(document.readyState === 'complete') {__ltkwidget.init();}}}(document, 'script', 'ltkwidget-script');</script><div class='rs-adblock'><img src='//assets.rewardstyle.com/images/search/350.gif' onerror='this.parentNode.innerHTML=$rewardErrorMessage' /><noscript>JavaScript is currently disabled in this browser. Reactivate it to view this content.</noscript></div></div>";
     $creds = "<p>[footer_copyright] GBO Fashion &middot All Rights Reserved &middot Website Design by <a href='http://trevoreyre.com' target='_blank'>Trevor Eyre</a></p>";
-    
+
     return $followOnInsta . $rewardStyleScript . $creds;
 }
 
@@ -313,26 +297,26 @@ function gbo_home_loop () {
     if (is_home()) {
         remove_action('genesis_loop', 'genesis_do_loop');
         add_action('genesis_loop', 'gbo_custom_loop');
-    
+
         function gbo_custom_loop () {
             $gbo_post_counter = 1;
             if (have_posts()) :
                 do_action('genesis_before_while');
                 while (have_posts()) : the_post();
-                
+
                     do_action('genesis_before_entry');
                     printf('<article %s>', genesis_attr('entry'));
                     do_action('genesis_entry_header');
-                    do_action('genesis_before_entry_content');      
+                    do_action('genesis_before_entry_content');
                     printf('<div %s>', genesis_attr('entry-content'));
-                            
-                    do_action('genesis_entry_content'); // Remove standard excerpt       
-                    echo '</div>';      
-                    do_action('genesis_after_entry_content');   
-                    do_action('genesis_entry_footer');      
-                    echo '</article>';      
+
+                    do_action('genesis_entry_content'); // Remove standard excerpt
+                    echo '</div>';
+                    do_action('genesis_after_entry_content');
+                    do_action('genesis_entry_footer');
+                    echo '</article>';
                     do_action('genesis_after_entry');
-                    
+
                     if ($gbo_post_counter == 2) {
                         echo "
                             <article class='entry post'>
@@ -355,7 +339,7 @@ function gbo_home_loop () {
 
                 endwhile; // end of one post
                 do_action('genesis_after_endwhile');
-        
+
             else : // if no posts exist
                 do_action('genesis_loop_else');
             endif; // end loop
