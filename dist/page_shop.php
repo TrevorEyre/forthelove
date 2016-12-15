@@ -16,14 +16,6 @@ add_action('genesis_sidebar', 'gbo_page_shop_sidebar');
 function gbo_page_shop_sidebar () { ?>
     <section class='widget widget_text'>
         <div class='widget-wrap'>
-            <h4 class='widget-title widgettitle'>Featured</h4>
-            <div class='textwidget'>
-                <input type='button' id='420338' class='gbo-shop-button' value='Nordstrom Sale'>
-            </div>
-        </div>
-    </section>
-    <section class='widget widget_text'>
-        <div class='widget-wrap'>
             <h4 class='widget-title widgettitle'>Category</h4>
             <div class='textwidget'>
                 <input type='button' id='420285' class='gbo-shop-button' value='Her Clothes'>

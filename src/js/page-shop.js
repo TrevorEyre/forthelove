@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
     //Initialize widget
-    getShopWidget('Nordstrom Sale', '420338');
+    getShopWidget('Her Clothes', '420285');
 
     //Change widget on button click
     $('.gbo-shop-button').on('click', function () {
