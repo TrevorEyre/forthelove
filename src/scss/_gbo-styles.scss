@@ -304,11 +304,11 @@ th {
     background-position: center;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
 }
 
 .admin-bar .gbo-hero-image {
-    height: calc(100vh - 32px);
+    height: calc(90vh - 32px);
 }
 
 .gbo-hero-image_nav-gradient {
@@ -316,29 +316,40 @@ th {
 }
 
 .gbo-hero-image_cover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.25);
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     z-index: 49;
 }
 
 .admin-bar .gbo-hero-image_cover {
-    height: calc(100vh - 32px);
+    height: calc(90vh - 32px);
 }
 
 .gbo-hero-image_slogan {
     position: relative;
-    top: 32px;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) translateZ(0);
+    width: 90%;
     z-index: 50;
-    padding: 24px 16px;
+    padding: 24px;
     text-align: center;
+    // background: rgba(255, 255, 255, 0.85);
+    // outline: 2px solid #fff;
+    // outline-offset: 4px;
 }
 
-.gbo-hero-image_slogan img {
-    width: 127.11px;
+// .gbo-hero-image_slogan img {
+//     width: 127.11px;
+//     margin: 0 auto 16px auto;
+// }
+
+.gbo-hero-image_slogan svg {
+    width: 100%;
     margin: 0 auto 16px auto;
+    fill: #fff;
 }
 
 .gbo-hero-image_slogan h1 {
@@ -354,7 +365,9 @@ th {
 
 .gbo-hero-image_slogan .button,
 .gbo-hero-image_slogan .button-call {
-    display: none;
+    display: block;
+    width: 160px;
+    margin: 0 auto;
 }
 
 /* Containers */
@@ -900,7 +913,8 @@ img.alignright,
 
 .header-image .site-title a {
     margin: 0 auto;
-    width: 127.11px;
+    max-width: 100%;
+    width: 371.82px;
     height: 86px;
     background-size: 100% !important;
     max-width: 1000px;
@@ -1399,6 +1413,10 @@ p.form-submit,
     margin: 48px 0;
 }
 
+.site-footer p.gbo-copyright-text {
+    margin-top: 48px;
+}
+
 /* # Instagram widget
 ---------------------------------------------------------------------------------------------------- */
 .gbo-insta-widget_header {
@@ -1433,7 +1451,6 @@ h2.gbo-insta-footer span {
     padding:0 20px;
 }
 
-
 /* ## Shop Buttons
 --------------------------------------------- */
 input[type='button'].gbo-shop-button {
@@ -1451,29 +1468,29 @@ input[type='button'].gbo-shop-button:last-child {
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
-@media only screen and (min-height: 472px) {
-    .gbo-hero-image_slogan .button-call {
-        display: block;
-        width: 160px;
-        margin: 0 auto;
-    }
-}
+// @media only screen and (min-height: 472px) {
+//     .gbo-hero-image_slogan .button-call {
+//         display: block;
+//         width: 160px;
+//         margin: 0 auto;
+//     }
+// }
 
-@media only screen and (min-height: 520px) {
-    .gbo-hero-image_slogan {
-        top: calc((100% - 456px) / 2);
-    }
-}
+// @media only screen and (min-height: 520px) {
+//     .gbo-hero-image_slogan {
+//         top: calc((100% - 456px) / 2);
+//     }
+// }
 
 @media only screen and (min-width: 400px) {
     .header-image .site-title a {
-        width: 164px;
+        width: 479.91px;
         height: 111px;
     }
 
-    .gbo-hero-image_slogan img {
-        width: 164px;
-    }
+    // .gbo-hero-image_slogan img {
+    //     width: 164px;
+    // }
 
     .gbo-hero-image_slogan h1 {
         font-size: 24px;
@@ -1502,7 +1519,8 @@ input[type='button'].gbo-shop-button:last-child {
 @media only screen and (min-width: 600px) {
     .gbo-hero-image_slogan {
         width: 50%;
-        left: 50%;
+        left: 40%;
+        transform: translateY(-50%) translateZ(0);
     }
 }
 
@@ -1572,7 +1590,7 @@ input[type='button'].gbo-shop-button:last-child {
     }
 
     .header-image .site-title a {
-        width: 201px;
+        width: 588px;
         height: 136px;
     }
 
@@ -1603,10 +1621,15 @@ input[type='button'].gbo-shop-button:last-child {
     .gbo-hero-image_slogan {
         width: 33.33333333333333%;
         left: 58.66666666666667%;
+        transform: translateY(-50%) translateZ(0);
     }
 
-    .gbo-hero-image_slogan img {
-        width: auto;
+    // .gbo-hero-image_slogan img {
+    //     width: auto;
+    //     margin-bottom: 24px;
+    // }
+
+    .gbo-hero-image_slogan svg {
         margin-bottom: 24px;
     }
 
@@ -1652,24 +1675,31 @@ input[type='button'].gbo-shop-button:last-child {
         background-color: #fff;
     }
 
-    .genesis-nav-menu .sub-menu li.highlight a {
+    .genesis-nav-menu .sub-menu li.highlight:not(.gbo-nav-logo) a {
         color: #f5979b;
     }
 
-    .genesis-nav-menu li.highlight a:hover {
+    .genesis-nav-menu li.highlight:not(.gbo-nav-logo) a:hover {
         background-color: #f5979b;
         color: #fff;
     }
 
-    .genesis-nav-menu li a:hover {
+    .genesis-nav-menu li:not(.gbo-nav-logo) a:hover {
         background-color: #333;
         color: #fff;
     }
 
-    .genesis-nav-menu li.gbo-social-icons a:hover,
-    .genesis-nav-menu li.gbo-nav-logo a:hover {
+    .genesis-nav-menu li.gbo-social-icons a:hover {
         background: transparent;
         color: #f5979b;
+    }
+
+    .gbo-nav-logo svg {
+        fill: #333;
+    }
+
+    .genesis-nav-menu li.gbo-nav-logo a:hover svg {
+        fill: #f5979b;
     }
 
     .admin-bar .nav-primary,
@@ -1719,9 +1749,14 @@ input[type='button'].gbo-shop-button:last-child {
 
     /* Primary navigation social/search */
     .genesis-nav-menu .menu-item.gbo-social-icons,
-    .genesis-nav-menu .menu-item.gbo-search,
+    .genesis-nav-menu .menu-item.gbo-search {
+        display: inline-block;
+    }
+
     .genesis-nav-menu .menu-item.gbo-nav-logo {
         display: inline-block;
+        width: 160px;
+        height: auto;
     }
 
     .genesis-nav-menu .menu-item.gbo-search {
