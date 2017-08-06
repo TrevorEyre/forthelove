@@ -1,2 +1,2 @@
-# gbofashion.com
-GBO Fashion website
+# forthelove.blog
+For the Love website.
