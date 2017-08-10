@@ -1,0 +1,116 @@
+/* Nav button. Nav button animation credit: Nick Salloum
+http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
+
+.tke-nav-button {
+  display: block;
+  position: relative;
+  // position: fixed;
+  // top: 8px;
+  // left: 8px;
+  // z-index: 3;
+  overflow: hidden;
+  margin-right: 16px;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  background: #fff;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  transition: transform $button-transistion-duration;
+  @include breakpoint-desktop() {
+    display: none;
+  }
+}
+
+.tke-nav-button.hidden {
+  transform: translateY(-68px);
+}
+
+.tke-nav-button:focus {
+  outline: none;
+}
+
+.tke-nav-button span {
+  display: block;
+  position: absolute;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: $color-primary;
+}
+
+.tke-nav-button span::before,
+.tke-nav-button span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $bar-thickness;
+  background-color: $color-primary;
+  content: "";
+}
+
+.tke-nav-button span::before {
+  top: -$bar-thickness - $button-bar-space;
+}
+
+.tke-nav-button span::after {
+  bottom: -$bar-thickness - $button-bar-space;
+}
+
+/* Nav button animation */
+
+.tke-nav-button span {
+  transition: transform $button-transistion-duration;
+}
+
+.tke-nav-button span::before {
+  transform-origin: top right;
+  transition:
+    transform $button-transistion-duration,
+    width $button-transistion-duration,
+    top $button-transistion-duration;
+}
+
+.tke-nav-button span::after {
+  transform-origin: bottom right;
+  transition:
+    transform $button-transistion-duration,
+    width $button-transistion-duration,
+    bottom $button-transistion-duration;
+}
+
+/* Menu open */
+
+.tke-nav-button.tke-open {
+  box-shadow: none;
+}
+
+.tke-nav-button.tke-open span {
+  transform: rotate(180deg);
+}
+
+.tke-nav-button.tke-open span::before,
+.tke-nav-button.tke-open span::after {
+  width: 50%;
+}
+
+.tke-nav-button.tke-open span::before {
+  top: 0;
+  transform:
+    translateX($button-width/2 - $button-pad + $bar-thickness)
+    translateY($bar-thickness/2)
+    rotate(45deg);
+}
+
+.tke-nav-button.tke-open span::after {
+  bottom: 0;
+  transform:
+    translateX($button-width/2 - $button-pad + $bar-thickness)
+    translateY(-$bar-thickness/2)
+    rotate(-45deg);
+}

@@ -1,8 +1,10 @@
-# Node Dependency directory
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+.cache-loader
+dist
+bower_components
 node_modules
-
-# Resource folder
-res
-
-gbo_google_analytics.php
-gbo_reward_style_script_manager.php
+npm-debug.log
+yarn-error.log
+vendor
+resources/assets/config-local.json

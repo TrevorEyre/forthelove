@@ -1,0 +1,218 @@
+.tke-nav-container {
+  @include breakpoint-desktop() {
+    border-bottom: 1px solid $border-color;
+    padding: 8px 16px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    transition: transform $transition-duration;
+  }
+}
+
+.admin-bar .tke-nav-container {
+  @include breakpoint-desktop() {
+    top: $admin-bar-height-desktop;
+  }
+}
+
+// .tke-nav-container.open {
+//   @include breakpoint-desktop() {
+//     transform: translateY($header-height-desktop + 1);
+//   }
+// }
+
+// .nav-container.open.at-header {
+//   @include breakpoint-desktop() {
+//     transform: translateY(0);
+//   }
+// }
+
+.tke-nav-container nav a {
+  color: $text-color-primary;
+}
+
+.tke-nav-container nav a:hover {
+  text-decoration: none;
+}
+
+.tke-nav-bar {
+  border-bottom: 1px solid $border-color;
+  padding: 1px 0;
+  width: 100%;
+  position: fixed;
+  // top: -($header-height-mobile + 1);
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background: #fff;
+  transition: transform $transition-duration;
+  @include breakpoint-desktop() {
+    border: none;
+    padding: 0;
+    width: auto;
+    position: relative;
+    top: 0;
+  }
+}
+
+.admin-bar .tke-nav-bar {
+  top: $admin-bar-height-mobile;
+  @include breakpoint-tablet() {
+    top: $admin-bar-height-desktop;
+  }
+  @include breakpoint-desktop() {
+    top: 0;
+  }
+}
+
+// .tke-nav-container.tke-open .tke-nav-bar {
+//   transform: translateY($header-height-mobile + 1);
+//   @include breakpoint-desktop() {
+//     transform: none;
+//   }
+// }
+
+.tke-nav-logo {
+  height: $header-height-mobile - 8px;
+  @include breakpoint-desktop() {
+    height: $header-height-desktop - 16px;
+  }
+}
+
+.tke-nav-logo img,
+.tke-nav-logo svg {
+  height: 100%;
+}
+
+.tke-nav-button-container {
+  margin: 8px 0 16px;
+  display: flex;
+  @include breakpoint-desktop() {
+    display: none;
+  }
+}
+
+.tke-nav-drawer {
+  border-right: solid 1px $border-color;
+  width: $nav-drawer-width - 1;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -$nav-drawer-width;
+  z-index: 4;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #fff;
+  transition: transform $transition-duration;
+  @include breakpoint-desktop() {
+    border-right: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 0;
+    z-index: 1;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+.tke-nav-drawer.tke-open {
+  transform: translateX($nav-drawer-width);
+  @include breakpoint-desktop() {
+    transform: none;
+  }
+}
+
+.admin-bar .tke-nav-drawer {
+  padding-top: $admin-bar-height-mobile;
+  @include breakpoint-tablet() {
+    padding-top: $admin-bar-height-desktop;
+  }
+  @include breakpoint-desktop() {
+    padding-top: 0;
+  }
+}
+
+.tke-nav-primary {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+  @include breakpoint-desktop() {
+    margin: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: initial;
+  }
+}
+
+.tke-nav-primary li {
+  margin: 0;
+  padding: 8px 16px;
+}
+
+.tke-nav-primary li:hover,
+.social li:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sub-menu {
+  display: none;
+}
+
+.social {
+  margin: 0;
+  border-top: 1px solid $border-color;
+  padding: 16px 16px 16px 12px;
+  list-style: none;
+  @include breakpoint-desktop() {
+    border: none;
+    padding: 0;
+  }
+}
+
+.social li {
+  padding: 4px;
+  display: inline-block;
+}
+
+/* Site header */
+
+.site-header {
+  display: none;
+  @include breakpoint-desktop() {
+    display: flex;
+    flex-flow: colum nowrap;
+    margin: 16px 0 0;
+  }
+}
+
+section:first-of-type header {
+  margin-top: 96px;
+  @include breakpoint-desktop() {
+    margin-top: 0;
+  }
+}
+
+.site-logo {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.site-logo img {
+  height: 150px;
+}
